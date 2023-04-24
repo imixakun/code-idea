@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% block content %} 
+
+<div class="card-signup">
+
+    <h4 class="signup-content">Registration</h4>
+    <br><br>
+    <form action="" method="post">
+        {% csrf_token %} 
+        {{ form|crispy }}
+        {{ from.media }}
+        <br>
+        <button class="btn btn-primary">Sign Up</button>
+    </form>
+</div>
+{% endblock %}

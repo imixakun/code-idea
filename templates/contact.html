@@ -1,0 +1,149 @@
+{% extends 'base.html' %} 
+{% block title %}Code Idea | Contact {% endblock %}
+{% block content %} 
+
+    
+<div class="card-all">
+    <iframe id="preview" style="border:0px;height:500px;width:100%;margin:5px;box-shadow: 0 0 16px 3px rgba(0,0,0,.2);" src="https://xn--r1a.website/s/code_idea"></iframe>
+    
+    <br><br>
+    <a href="https://t.me/code_idea">
+        <img class="icon" src="../static/telegram.png" width="50px" height="50px">
+    </a>
+
+    <br><br>
+    
+    <input id="username" class="username" placeholder="@username или Имя..." />
+    
+    <br><br>
+
+    <input id="usertext" class="usertext" placeholder="Text..." />
+
+    <br><br>
+
+    <button class="btn btn-primary" onclick="funcSend()">Send</button>
+
+</div>
+
+<script>
+    function funcSend() {
+
+        var name = document.getElementById("username").value;
+        var usertext= document.getElementById("usertext").value;
+
+        var my_text = `<b>Contact%0A%0AName: ${name}%0A%0A${usertext}</b>`
+
+        var token = "5570083176:AAEcb_MqjqDEI31hVBKHzf6nNsHBTwEkUjA";
+        var chat_id = '5407368270';
+        var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}&parse_mode=html`
+
+        let api = new XMLHttpRequest();
+        api.open("GET", url, true);
+        api.send();
+
+        console.log("Yuborildi")
+        alert("Отправлено!")
+    }
+    
+</script>
+
+<style>
+::placeholder {
+    color: #FFFFFF;
+}
+.username {
+    width: 300px;
+    height: 60px;
+    border: none;
+    background: none;
+    color: #FFFFFF;
+    padding-left: 10px;
+}
+
+.usertext {
+    width: 300px;
+    height: 60px;
+    border: none;
+    background: none;
+    color: #FFFFFF;
+    padding-left: 10px;
+}
+
+.button-menu {
+    width: 150px;
+    height: 50px;
+    float: right;
+    margin-left: 10px;
+    border: none;
+    background: none;
+    color: #1565C0;
+}
+
+.button-menu {
+    transition-duration: 0.4s;
+}
+
+.button-menu:hover {
+    color: #FFFFFF;
+    background: #1565C0;
+}
+
+.button-contact {
+    width: 150px;
+    height: 50px;
+    float: right;
+    margin-left: 10px;
+    border: none;
+    background: #1565C0;
+    color: #FFFFFF;
+}
+
+.button-contact {
+    transition-duration: 0.4s;
+}
+
+.button-contact:hover {
+    color: #1565C0;
+    background: #FFFFFF;
+}
+
+.menu-card {
+    width: 200px;
+    height: 100%;
+    background: #FFFFFF;
+    border: none;
+    float: right;
+    border-radius: 10px 10px;
+    position: fixed;
+    padding: 10px;
+    right: 0;
+    /* box-shadow: 0px 0px 5px #424242; */
+    display: none;
+}
+
+.menu-text {
+    color: #424242;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    float: left;
+    margin-top: 10px;
+}
+
+.menu-bar {
+    width: 100%;
+    height: auto;
+    background: none;
+    border: none;
+    padding: 20px;
+}
+
+.card-all {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    border: none;
+    padding: 10px;
+    display: inline-block;
+}
+</style>
+
+{% endblock %}

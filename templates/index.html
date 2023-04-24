@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}Code Idea{% endblock %}  
+{% block content %} 
+    <br>
+    {% if user.is_authenticated %} 
+    <div class="container">
+
+    <div class="configuration">
+
+        <a href="{% url 'post-new' %}">
+            <button class="btn btn-primary">New post</button>
+        </a>
+        <a href="{% url 'post_video_new' %}">
+            <button class="btn btn-primary">New video</button>
+        </a>
+        
+        <a href="{% url 'lists' %}">
+            <button class="btn btn-primary">Post config</button>
+        </a>
+        
+        <a href="{% url 'conf-list' %}">
+            <button class="btn btn-primary">Vlay config</button>
+        </a>
+    </div>
+        <!-- <div class="card-all">
+
+            <div class="card-content">
+                
+                {% for p in object_list %}
+                <a href="{% url 'details' p.pk %}">
+                    
+                    <div class="card-articles">
+                        <img src="{{ p.photo.url }}" width="100%" height="auto">        
+                        <h5 class="text-title">{{ p.title }}</h5>   
+                        <p class="text-summary">
+                            {{ p.summary }}
+                        </p>
+                        
+                    </div>
+                </a>
+                <br>
+                {% endfor %}
+                
+            </div>
+        </div> -->
+        <br><br>
+        {% for p in object_list %}
+        <a href="{% url 'details' p.pk %}">
+        <div class="card mb-3" style="max-width: 540px;background: none;border: none;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ p.photo.url }}" class="img-fluid rounded-start">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="text-title">{{ p.title }}</h5>
+                  <p class="text-summary"> {{ p.summary }}</p>
+                  <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          </a>
+          {% endfor %}
+    </div>
+
+    {% else %}
+
+    <div class="container">
+        <br>
+        {% for p in object_list %}
+        <a href="{% url 'details' p.pk %}">
+        <div class="card mb-3" style="max-width: 540px;background: none;border: none;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ p.photo.url }}" class="img-fluid rounded-start">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="text-title">{{ p.title }}</h5>
+                  <p class="text-summary"> {{ p.summary }}</p>
+                  <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          </a>
+          {% endfor %}
+    </div>
+
+    {% endif %}
+
+    <br><br>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% block content %} 
+
+<br><br>
+<div class="container">
+
+    <h4 class="login-content" style="color: #FFFFFF;">New Post</h4>
+    <br>
+    
+    <form class="form-control" method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %} 
+        {{ form|crispy }}
+        {{ form.media }}
+
+        <br>
+        
+        <button class="btn btn-success">Public</button>     
+    </form>
+</div>
+<br>
+
+{% endblock %}

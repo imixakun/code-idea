@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Config | posts list{% endblock %}  
+{% block content %} 
+<br>
+<div class="container">
+<div class="card-content">
+
+{% for n in object_list %}
+<a href="{% url 'conf-detail' n.pk %}">
+    
+    <div class="card-all">
+        <div class="card-video-content">
+            <h5 class="author-text">{{ n.author }}</h5>
+            <br>
+        <video width="100%" controls>
+            <source src="{{ n.video.url }}" width="100%" height="auto" />
+        </video>
+            
+        <br><br>    
+        <h4 class="post-title">{{ n.title }}</h4>
+        <h4 class="post-summary">{{ n.summary }}</h4>
+        <br>
+        <a href="{% url 'post_video_edit' n.pk %}"><button class="btn btn-primary">Edit</button></a>
+        <a href="{% url 'post_video_delete' n.pk %}"><button class="btn btn-danger">delete</button></a>
+        
+    </div>
+</div>
+</a>
+{% endfor %}
+
+<style>
+        .card-all {
+            max-width: 100%;
+            height: auto;
+            border: none;
+            background: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-video-content {
+            max-width: 450px;
+            height: auto;
+            border: none;
+            background: none;
+            display: inline-block;
+            text-align: left;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .post-title {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #CFD8DC;
+
+        }
+
+        .post-summary {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #9E9E9E;
+
+        }
+</style>
+
+{% endblock %}

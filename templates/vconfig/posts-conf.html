@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Code Idea | {{ posts.title }}{% endblock %}
+
+{% block content %} 
+
+<div class="card-all">
+    <div class="card-content">
+
+        <img src="{{ videopost.video.url }}" width="100%" height="auto">
+        <br><br>
+        <h4 class="post-title">{{ videopost.title }}</h4>
+        <p class="text-summary">{{ videopost.summary }}</p>
+        <br>
+        <h4 class="post-content">{{ videopost.content }}</h4>
+        
+        <br>
+        <a href="{% url 'post_video_edit' videopost.pk %}"><button class="btn btn-primary">Edit</button></a>
+        <a href="{% url 'post_video_delete' videopost.pk %}"><button class="btn btn-danger">delete</button></a>
+    </div>
+</div>
+
+<style>
+        .card-all {
+            max-width: 100%;
+            height: auto;
+            border: none;
+            background: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-content {
+            max-width: 600px;
+            height: auto;
+            border: none;
+            background: none;
+            display: inline-block;
+            text-align: left;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .post-title {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #FFFFFF;
+
+        }
+
+        .post-content {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #CFD8DC;
+
+        }
+
+</style>
+
+{% endblock %}

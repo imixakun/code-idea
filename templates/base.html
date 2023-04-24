@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" name="Исскуство программиста">
+    <meta name="keywords" content="Code, Idea, Code Idea, art">
+    <meta name="author" content="Code Idea">
+    <meta property="og:title" content="Code Idea" />
+    <meta property="og:image" content="../static/codeidea.jpg" />
+    <meta property="og:description" content="Исскуство программиста">
+    <link rel="icon" href="../static/icons/codeidea.jpg" type="image/x-icon"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>{% block title %}Code-Idea from SIMB{% endblock %}</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background: #282a36;padding: 10px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/" style="color: #FFFFFF;">Code Idea</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto ">
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link mx-2" aria-current="page" href="#" style="color:#FFFFFF;">Projects</a> -->
+          <!-- </li> -->
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="{% url 'video_list' %}" style="color:#FFFFFF;">Vlay</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="{% url 'contactpage' %}" style="color:#FFFFFF;">Contact</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Company
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Blog</a></li>
+              <li><a class="dropdown-item" href="#">About Us</a></li>
+              <li><a class="dropdown-item" href="#">Contact us</a></li>
+            </ul> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+
+    {% block content %} 
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        a { text-decoration: none; }
+        body { background: #44475a; }
+        
+
+        /* index.html */
+
+
+        .menu-icons {
+          /* width: 40px; */
+          /* height: 40px; */
+        }
+
+        .card-articles {
+          width: 100%; 
+          height: auto;
+          background: #5a5e77;
+          border: none;
+          text-align: center;
+          /* padding: 20px; */
+        }
+
+        .text-title {
+          color: #FFFFFF;
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .text-summary {
+          color: #F5F5F5;
+          font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .configuration {
+          width: 100%;
+          height: auto;
+          border: none;
+          background: none;
+          text-align: center;
+        }
+
+        /* registration/login.html */
+        .login-content {
+          color: #424242;
+          font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+    </style>
+    
+</body>
+</html>

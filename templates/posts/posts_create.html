@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Code Idea | {{ posts.title }}{% endblock %}
+
+{% block content %} 
+
+<div class="container">
+    <br>
+    <h5 class="login-content" style="color: #FFFFFF;">New Article</h5>
+    <br>
+    <form class="form-control" method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %} 
+        {{ form|crispy }}
+
+        <br>
+        <button class="btn btn-outline-primary">Public</button>
+    </form>
+
+    <br>
+
+</div>
+
+{% endblock %}
